@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Capstone_2</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- LightBox -->
+    <link rel="stylesheet" href="../css/lightbox.min.css">
+    <!-- OWL CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- main CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+        <div class="Container">
+            <div class="header__main">
+                <div class="header__logo">
+                    <a>
+                        <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/logo-video.png" alt="">
+                    </a>
+                    <a>
+                        <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/APR_logo.png" alt="">
+                    </a>
+                </div>
+                <div class="header__navbar">
+                    <ul>
+                        <li>
+                            <a href="#">iPhone</a>
+                        </li>
+                        <li>
+                            <a href="#">Mac</a>
+                        </li>
+                        <li>
+                            <a href="#">iPad</a>
+                        </li>
+                        <li>
+                            <a href="#">Watch</a>
+                        </li>
+                        <li>
+                            <a href="#">Âm thanh</a>
+                        </li>
+                        <li>
+                            <a href="#">Phụ kiện</a>
+                        </li>
+                        <li>
+                            <a href="#">TekZone</a>
+                        </li>
+                        <li>
+                            <a href="#">TopCare</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header__search-cart">
+                    <div class="header__search">
+                        <i class="fa-solid fa-magnifying-glass"></i> 
+                    </div>
+                    <div class="header__cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="cart hide">
+                            <div class="cart__wrap">
+                                <h4>Sản phẩm mới thêm</h4>
+                                <div class="cart__list">
+                                    <div>
+                                        <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/9bdd8040b334d31946f49e36beaf32db.png" style="width: 100px; margin-bottom: 20px;">
+                                        <p>Chưa có sản phẩm</p>
+                                    </div>
+                                </div>
+                                <div class="cart__total">
+                                    <span>Total: 0đ</span>    
+                                </div>
+                                <div class="cart__btn">
+                                    <button class="btn btn-primary" data-type="purchase">Purchase</button>
+                                    <button class="btn btn-danger ml-2" data-type="clear">Clear All</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="header__form-search hide">
+                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="text" placeholder="Tìm kiếm sản phẩm">
+                    <span><i class="fa-solid fa-x"></i></span>
+                </form>
+            </div>
+        </div>
+    </header>
+    <!-- carousel -->
+    <section class="carousel">
+        <div class="carousel__main">
+            <div class="carousel__image">
+                <div class="carousel__image-1 active"></div>
+                <div class="carousel__image-2"></div>
+                <div class="carousel__image-3"></div>
+                <div class="carousel__image-4"></div>
+                <div class="carousel__image-5"></div>
+                <div class="carousel__image-6"></div>
+                <div class="carousel__image-7"></div>
+            </div>
+            <div class="carousel__pagination">
+                <div class="btn-prev">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+                <div class="btn-next">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+            <div class="carousel__dots">
+                <button class="carousel__dots-1 active"></button>
+                <button class="carousel__dots-2"></button>
+                <button class="carousel__dots-3"></button>
+                <button class="carousel__dots-4"></button>
+                <button class="carousel__dots-5"></button>
+                <button class="carousel__dots-6"></button>
+                <button class="carousel__dots-7"></button>
+            </div>
+        </div>
+    </section>
+    <!-- policy -->
+    <section class="policy">
+        <div class="policy__main">
+            <div class="row">
+                <div class="col-3 col">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Mẫu mã đa dạng,<br> chính hãng</span>
+                </div>
+                <div class="col-3 col">
+                    <i class="fa-solid fa-truck"></i>
+                    <span>Giao hàng toàn quốc</span>
+                </div>
+                <div class="col-3 col">
+                    <i class="fa-solid fa-shield"></i>
+                    <span>Bảo hành có cam kết tới 12 tháng</span>
+                </div>
+                <div class="col-3 col">
+                    <i class="fa-solid fa-arrow-rotate-left"></i>
+                    <span>Có thể đổi trả tại<br>
+                        Thegioididong và DienmayXANH</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- category -->
+    <section class="category">
+        <div class="Container">
+            <div class="category__main">
+                <div class="row">
+                    <div class="col">
+                        <a class="category__col">
+                            <div class="category__item cateiphone">
+                                <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/img-cateiphone.png" alt="">
+                            </div>
+                            <div>
+                                <span>iPhone</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="category__col">
+                            <div class="category__item catemac">
+                                <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/img-catemac.png" alt="">
+                            </div>
+                            <div>
+                                <span>Mac</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="category__col">
+                            <div class="category__item cateipad">
+                                <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/img-cateipad.png" alt="">
+                            </div>
+                            <div>
+                                <span>iPad</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="category__col">
+                            <div class="category__item catewatch">
+                                <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/img-catewatch.png" alt="">
+                            </div>
+                            <div>
+                                <span>iWatch</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="category__col">
+                            <div class="category__item catesound">
+                                <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/img-catesound.png" alt="">
+                            </div>
+                            <div>
+                                <span>iPod</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="category__col">
+                            <div class="category__item catephukien">
+                                <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/img-catephukien.png" alt="">
+                            </div>
+                            <div>
+                                <span>Phụ Kiện</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- iphone -->
+    <section class="product">
+        <div class="product__filter">
+            <div class="Container">
+                <h4>Chọn theo tiêu chí</h4>
+                <div>
+                    <div class="product__price">
+                        <span><i class="fa-solid fa-sack-dollar"></i> &nbsp Giá</span>
+                    </div>
+                    <div class="product__type">
+                        <span>Loại sản phẩm</span>
+                        <ul class="hide">
+                            <li data-type="iphone">Iphone</li>
+                            <li data-type="Samsung">Samsung</li>
+                        </ul>
+                    </div>
+                    <div class="product__screen">
+                        <span>Kích thước màn hình</span>
+                        <ul class="hide">
+                            <li>Trên 6 inch</li>
+                            <li>Dưới 6 inch</li>
+                        </ul>
+                    </div>
+                    <div class="product__camera-F">
+                        <span>Camera trước</span>
+                        <ul class="hide">
+                            <li>7MP</li>
+                            <li>10MP</li>
+                            <li>12MP</li>
+                        </ul>
+                    </div>
+                    <div class="product__camera-B">
+                        <span>Camera sau</span>
+                        <ul class="hide">
+                            <li>12MP</li>
+                            <li>64MP</li>
+                            <li>50MP</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span>Tính năng đặc biệt</span>
+                        <ul class="hide">
+                            <li>Iphone</li>
+                            <li>Android</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span>Bộ nhớ trong</span>
+                        <ul class="hide">
+                            <li>Iphone</li>
+                            <li>Android</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span>Dung lượng RAM</span>
+                        <ul class="hide">
+                            <li>Iphone</li>
+                            <li>Android</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product__main">
+            <div class="Container">
+                <div class="row">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- intro -->
+    <section class="intro">
+        <div class="intro__main">
+            <div class="intro__video">
+                <video width="100%" controls autoplay muted loop playinside>
+                    <source src="//cdn.tgdd.vn/mwgcart/topzone/video/Gt-Topzone.mp4" type="video/mp4">
+                </video>
+                <div class="intro__bg"></div>
+                <div class="intro__logo">
+                    <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/logo-video.png" alt="">
+                </div>
+            </div>
+            <p>
+                Tại TopZone, khách hàng yêu mến hệ sinh thái Apple sẽ tìm thấy đầy đủ và đa dạng nhất các sản phẩm như iPhone, iPad, Apple Watch, MacBook và các phụ kiện Apple... với không gian mua sắm đẳng cấp, hiện đại.
+            </p>
+            <div>
+                <button class="btn">Đọc Thêm</button>
+            </div>
+        </div>
+    </section>
+    <!-- slide -->
+    <section class="slide">
+        <div class="slide__main">
+            <div class="owl-carousel owl-theme">
+                <a href="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store1-1920x1080.jpg" class="item" data-lightbox="store">
+                    <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store1-1920x1080.jpg" alt="">
+                </a>
+                <a href="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store2-1920x1080.jpg" class="item" data-lightbox="store">
+                    <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store2-1920x1080.jpg" alt="">
+                </a>
+                <a href="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store3-1920x1080.jpg" class="item" data-lightbox="store">
+                    <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store3-1920x1080.jpg" alt="">
+                </a>
+                <a href="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store4-1920x1080.jpg" class="item" data-lightbox="store">
+                    <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store4-1920x1080.jpg" alt="">
+                </a>
+                <a href="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store5-1920x1080.jpg" class="item" data-lightbox="store">
+                    <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store5-1920x1080.jpg" alt="">
+                </a>
+                <a href="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store6-1920x1080.jpg" class="item" data-lightbox="store">
+                    <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store6-1920x1080.jpg" alt="">
+                </a>
+                <a href="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store7-1920x1080.jpg" class="item" data-lightbox="store">
+                    <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store7-1920x1080.jpg" alt="">
+                </a>
+                <a href="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store8-1920x1080.jpg" class="item" data-lightbox="store">
+                    <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/Store8-1920x1080.jpg" alt="">
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- list store -->
+    <section class="store">
+        <div class="Container">
+            <div class="store__main">
+                <div class="store__search">
+                    <b>TopZone mở bán tại 55 cửa hàng</b>
+                    <div>
+                        <span>Chọn tỉnh thành</span>
+                        <ul class="store__province">
+                            <li data-province="p3">Hồ Chí Minh</li>
+                            <li data-province="p5">Hà Nội</li>
+                            <li data-province="p9">Đà Nẵng</li>
+                            <li data-province="p82">An Giang</li>
+                            <li data-province="p102">Bà Rịa - Vũng Tàu</li>
+                            <li data-province="p106">Bắc Ninh</li>
+                            <li data-province="p107">Bến Tre</li>
+                            <li data-province="p108">Bình Định</li>
+                            <li data-province="p109">Bình Dương</li>
+                            <li data-province="p111">Bình Thuận</li>
+                            <li data-province="p81">Cà Mau</li>
+                            <li data-province="p7">Cần Thơ</li>
+                            <li data-province="p6">Đắk Lắk</li>
+                            <li data-province="p114">Điện Biên</li>
+                            <li data-province="p8">Đồng Nai</li>
+                            <li data-province="p116">Gia Lai</li>
+                            <li data-province="p101">Hải Phòng</li>
+                            <li data-province="p125">Khánh Hòa</li>
+                            <li data-province="p126">Kiên Giang</li>
+                            <li data-province="p132">Long An</li>
+                            <li data-province="p133">Nam Định</li>
+                            <li data-province="p134">Nghệ An</li>
+                            <li data-province="p136">Ninh Thuận</li>
+                            <li data-province="p140">Quảng Nam</li>
+                            <li data-province="p142">Quảng Ninh</li>
+                            <li data-province="p146">Tây Ninh</li>
+                            <li data-province="p148">Thái Nguyên</li>
+                            <li data-province="p151">Tiền Giang</li>
+                            <li data-province="p154">Vĩnh Long</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="store__list">
+                </div>
+                <a href="#+" class="store__more">
+                    Xem thêm 49 cửa hàng
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__main">
+            <div class="Container">
+                <div class="footer__title">
+                    <a>
+                        <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/logo-video.png" alt="">
+                    </a>
+                    <a>
+                        <img src="../img/294f8060-0f6b-4f63-8dc5-bb118fc351e4/APR_logo.png" alt="">
+                    </a>
+                </div>
+                <div class="footer__top">
+                    <div class="row">
+                        <div class="col-3 footer__col">
+                            <div>Tổng đài</div>
+                            <ul>
+                                <li><a href=""><span>Mua hàng:</span><span>1900.9696.42</span> (7:30 - 22:00)</a></li>
+                                <li><a href=""><span>CSKH:</span><span>1900.9696.42</span> (8:00 - 21:30)</a></li>
+                                <li><a href=""><span>Kỹ thuật:</span><span>1900.9696.42</span> (7:30 - 22:00)</a></li>
+                            </ul>
+                        </div>
+                        <div class="col footer__col">
+                            <div>Hệ thống 55 cửa hàng</div>
+                            <ul>
+                                <li><a href="">Xem 55 cửa hàng</a></li>
+                                <li><a href="">Nội quy cửa hàng</a></li>
+                                <li><a href="">Chất lượng dịch vụ</a></li>
+                                <li><a href="">Chính sách bảo hành & đổi trả</a></li>
+                            </ul>
+                        </div>
+                        <div class="col footer__col">
+                            <div>Hỗ trợ khách hàng</div>
+                            <ul>
+                                <li><a href="">Điều kiện giao dịch chung</a></li>
+                                <li><a href="">Hướng dẫn mua hàng online</a></li>
+                                <li><a href="">Chính sách giao hàng</a></li>
+                                <li><a href="">Hướng dẫn thanh toán</a></li>
+                            </ul>
+                        </div>
+                        <div class="col footer__col">
+                            <div>Về thương hiệu TopZone</div>
+                            <ul>
+                                <li><a href="">Tích điểm Qùa tặng VIP</a></li>
+                                <li><a href="">Giới thiệu TopZone</a></li>
+                                <li><a href="">Bán hàng doanh nghiệp</a></li>
+                                <li><a href="">Chính sách bảo mật thông tin</a></li>
+                                <li><a href="">Xem bản mobile</a></li>
+                            </ul>
+                        </div>
+                        <div class="col footer__col">
+                            <div>Trung tâm bào hành TopCare</div>
+                            <ul>
+                                <li><a href="">Giới thiệu TopCare</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <div>
+                        <p>
+                            © 2018. Công ty cổ phần Thế Giới Di Động. GPDKKD: 0303217354 do sở KH &amp; ĐT TP.HCM cấp ngày 02/01/2007. <br>
+                            Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP. Hồ Chí Minh. Điện thoại: 028 38125960. 
+                        </p>
+                    </div>
+                    <div>
+                        <a class="bct" href="">
+                            <i class="iconlogo-bct"></i>
+                        </a>
+                        <a class="ncsc" href="">
+                            <i class="iconlogo-ncsc"></i>
+                        </a>
+                        <a class="dmca" href="">
+                            <i class="iconlogo-dmca"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__logo">
+            <p>
+                Ghé thăm các website khác cùng tập đoàn MWG
+            </p>
+            <div>
+                <a class="tgdd" href="">
+                    <i class="iconlogo-tgdd"></i>
+                </a>
+                <a class="dmx" href="">
+                    <i class="iconlogo-dmx"></i>
+                </a>
+                <a class="bhx" href="">
+                    <i class="iconlogo-bhx"></i>
+                </a>
+                <a class="ntak" href="">
+                    <i class="iconlogo-ntak"></i>
+                </a>
+                <a class="avakids" href="">
+                    <i class="iconlogo-avakids"></i>
+                </a>
+                <a class="avasport" href="">
+                    <i class="iconlogo-avasport"></i>
+                </a>
+                <a class="tantam" href="">
+                    <i class="iconlogo-tantam"></i>
+                </a>
+                <a class="farm" href="">
+                    <i class="iconlogo-farm"></i>
+                </a>
+                <a class="vieclam" href="">
+                    <i class="iconlogo-vieclam"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="editData__API d-none">
+        <div class="Container">
+            <input class="id" type="text" placeholder="id">
+            <input class="nameProvince" type="text" placeholder="nameProvince">
+            <input class="nameStore" type="text" placeholder="nameStore">
+            <input class="addressStore" type="text" placeholder="address">
+            <button class="btn btn-info update">update</button>
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- OWL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- LightBox JS -->
+    <script src="../models/lightbox.min.js"></script>
+    <!-- Axios JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Main JS -->
+    <script src="../services/storeAPI.js"></script>
+    <script src="../models/stores.js"></script>
+    <script src="../models/lib.js"></script>
+    <script src="../controllers/main.js"></script>
+  </body>
+</html>
