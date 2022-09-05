@@ -1,6 +1,5 @@
-// ========================== Header ==========================
+// =========================== Scroll Top ===========================
 
-// scroll top
 const header = document.querySelector('.header');
 window.addEventListener('scroll', (e) => {
     let scrollTop = window.scrollY;
@@ -10,7 +9,6 @@ window.addEventListener('scroll', (e) => {
         header.classList.remove('sticky')
     }
 })
-
 // ========================== Header Form ==========================
 
 const headerMain = document.querySelector('.header__main');
@@ -22,87 +20,54 @@ const headerForm = document.querySelector('.header__form-search');
 const searchIcon = document.querySelector('.header__search');
 const xIcon = document.querySelector('.header__form-search span:last-child');
 
-// handle Icon search
+// handle Icon Search Header
 searchIcon.addEventListener('click', (e) => {
     headerLogo.classList.add('hide');
     headerNav.classList.add('hide');
     headerSearchCart.classList.add('hide');
     headerMain.style.justifyContent = 'center'
-    headerForm.classList.remove('hide')
+    headerForm.classList.remove('hide');
 })
 
-// handle Icon X
+// handle Icon X Search Header
 xIcon.addEventListener('click', (e) => {
     headerLogo.classList.remove('hide');
     headerNav.classList.remove('hide');
     headerSearchCart.classList.remove('hide');
-    headerMain.style.justifyContent = 'space-between'
+    headerMain.style.justifyContent = 'space-between';
     headerForm.classList.add('hide')
 })
-// ========================== Header Cart ==========================
 
-document.querySelector('.header__cart ').addEventListener('click' , (e) => {
-    const showCart = document.querySelector('.cart');
-    showCart.classList.toggle('hide');
+// handle display Search Header
+headerForm.children[1].addEventListener('input', (e) => {
+    let stamp = e.target.value;
+    getProducts(stamp);
 })
 
+// ========================== Header Cart ==========================
 
-// ========================== CAROUSEL ==========================
+const showHideCart = document.querySelector('.cart');
 
-const imageList = document.querySelectorAll('.carousel__image div');
-const dotsList = document.querySelectorAll('.carousel__dots button');
+document.querySelector('.header__cart ').addEventListener('click' , (e) => {
+    showHideCart.classList.remove('hide');
 
-// Convert nodeList => Array
-const imageListArr = [...imageList];
-const dotsListArr = [...dotsList];
-const imageSlide = document.querySelector('.carousel__image');
+    let elementType = e.target.getAttribute('data-close');
+    if (elementType === 'close') {
+        showHideCart.classList.add('hide');
+    }
+})
+// ================================== FOOTER ===================================
 
-for (let i = 0; i < dotsList.length; i++) {
-    dotsList[i].addEventListener('click', (e) => {
-        if (dotsList[i] == dotsList[0]) {
-            imageSlide.style.transform = 'translateX(0)'
-        } else if (dotsList[i] == dotsList[1]) {
-            imageSlide.style.transform = 'translateX(-1519.2px)'
-        } else if (dotsList[i] == dotsList[2]) {
-            imageSlide.style.transform = 'translateX(-3038.4px)'
-        } else if (dotsList[i] == dotsList[3]) {
-            imageSlide.style.transform = 'translateX(-4557.6px)'
-        } else if (dotsList[i] == dotsList[4]) {
-            imageSlide.style.transform = 'translateX(-6076.8px)'
-        } else if (dotsList[i] == dotsList[5]) {
-            imageSlide.style.transform = 'translateX(-7596.0px)'
-        } else if (dotsList[i] == dotsList[6]) {
-            imageSlide.style.transform = 'translateX(-9115.2px)'
-        } 
+const showFooter = document.querySelectorAll('.footer__col ul');
+
+let stamp = document.querySelectorAll('.footer__col div');
+for (let i = 0; i < stamp.length; i++) {
+    stamp[i].addEventListener('click', (e) => {
+        showFooter[i].classList.toggle('show');
     })
 }
-// console.log(window.innerWidth)
-const prev = () => {
-    if (value < 0) {
-        value += 1519.2;
-        imageSlide.style.transform = `translateX(${(value)}px)`
-    } else {
-        imageSlide.style.transform = `translateX(0px)`
-    }
-}
-const next = () => {
-    value -= 1519.2;
-    if (value < -9115.2) {
-        imageSlide.style.transform = `translateX(0px)`
-        value = 0;
-    } else {
-        imageSlide.style.transform = `translateX(${(value)}px)`
-    }
-}
-let value = 0;
-const btnPrev = document.querySelector('.btn-prev')
-btnPrev.addEventListener('click', prev)
-const btnNext = document.querySelector('.btn-next')
-btnNext.addEventListener('click', next)
 
-setInterval(next, 5000)
-
-// ========================== STORE ==========================
+// ================================== STORE ===================================
 
 const selectProvince = document.querySelector('.store__search span');
 const listProvince = document.querySelector('.store__province');
@@ -111,7 +76,6 @@ const storeList = document.querySelector('.store__list');
 const storeMore = document.querySelector('.store__more');
 
 const totalStore = document.querySelector('.store__search b');
-
 
 // handle show listProvince
 selectProvince.addEventListener('click', () => {
@@ -160,10 +124,12 @@ listProvince.addEventListener('click', (e) => {
 })
 
 getStore()
+
+// hàm lấy dữ liêu Store từ API
 function getStore() {
     apiGetStore()
     .then(response => {
-        console.log(response.data)
+        // console.log(response.data)
         let stores = response.data.map((store) => {
             return store = new Stores(
                 store.id,
@@ -177,166 +143,219 @@ function getStore() {
     .catch(error => console.log(error))
 }
 
+// hàm render HTML
 function display(stores) {
     let content = '';
     stores.reduce((result, store) => {
         return content = result + 
-        `<p class="m-0">
-            <a href="#+">
-                <span>
-                    ${store.nameStore}
+        `<div class="col-lg-6 col-sm-12">
+            <p class="m-0 ">
+                <a href="">
                     <span>
-                        Xem chỉ đường
+                        ${store.nameStore}
+                        <span>
+                            Xem chỉ đường
+                        </span>
                     </span>
-                </span>
-                <span>${store.addressStore}</span>
-                <button class="btn btn-primary d-none"
-                data-type="edit"
-                data-id="${store.id}"
-                >Edit</button>
-                <button class="btn btn-danger d-none"
-                data-type="del"
-                data-id="${store.id}"
-                >Delete</button>
-            </a>
-        </p>`
+                    <span>${store.addressStore}</span>
+                    <button class="btn btn-primary d-none"
+                    data-type="edit"
+                    data-id="${store.id}"
+                    >Edit</button>
+                    <button class="btn btn-danger d-none"
+                    data-type="del"
+                    data-id="${store.id}"
+                    >Delete</button>
+                </a>
+            </p>
+        </div>
+        `
     },'')
     storeList.innerHTML = content;
 }
-// ========================== Code Edit Store ==========================
-function updateStoreID(id) {
-    apiUpdateStoreID(id)
-        .then((response) => {
-            console.log(response.data)
-            document.querySelector('.id').value = response.data.id;
-            document.querySelector('.nameProvince').value = response.data.nameProvince;
-            document.querySelector('.nameStore').value = response.data.nameStore;
-            document.querySelector('.addressStore').value = response.data.addressStore;
-        })
-        .catch(error => console.log(error))
-}
 
-storeList.addEventListener('click', (e) => {
-    console.log(e.target)
-    let element = e.target.getAttribute('data-type')
-    let id = e.target.getAttribute('data-id')
-    if (element  === 'edit') {
-        updateStoreID(id);
-    } else if (element  === 'del') {
-        delStore(id)
-    }
+// =============================== PRODUCTS ===============================
 
-})
-
-function updateStore(id, store) {
-    apiUpdateStore(id, store)
-        .then(response => {
-            console.log(response.data.addrssStore);
-            response.data.addrssStore = '';
-            getStore();
-        })
-        .catch(error => console.log(error))
-}
-
-document.querySelector('.update').addEventListener('click', (e) => {
-    console.log(document.querySelector('.id').value)
-    let id = document.querySelector('.id').value;
-    let nameProvince = document.querySelector('.nameProvince').value;
-    let nameStore = document.querySelector('.nameStore').value;
-    let addressStore = document.querySelector('.addressStore').value;
-    
-    let store = new Stores(id, nameProvince, nameStore, addressStore)
-    updateStore(id, store)
-    // addStore(store)
-})
-
-function addStore(store) {
-    apiAddStore(store)
-        .then(response => getStore())
-        .catch(error => console.log(error))
-}
-
-function delStore(id) {
-    apiDelStore(id)
-        .then(response => getStore())
-        .catch(error => console.log(error))
-}
-
-// ========================== PRODUCTS ==========================
-
+// tạo danh sách sản phẩm = [] 
 let productList = [];
+
+// clone data = Axios về & lưu vào danh sách sản phẩm
 apiGetProducts()
-    .then(response => productList = response.data)
+    .then((response) => productList = response.data) 
     .catch(error => console.log(error))
 // setTimeout(() => {
 //     console.log(productList) 
 // }, 3000)
 
-const selectType = document.querySelector('.product__type')
-const selectScreen = document.querySelector('.product__screen')
-const selectCameraF = document.querySelector('.product__camera-F')
-const selectCameraB = document.querySelector('.product__camera-B')
+// hiển thị option cho người dùng chọn
+let filter = document.querySelectorAll('.product__filter .Container div div');
 
-// product type
-selectType.addEventListener('click', (e) => {
-    let ul = document.querySelector('.product__type ul');
-    ul.classList.toggle('hide');
-    // lọc theo option chọn
+filter.forEach((boLoc) => boLoc.addEventListener('click', (e) => {
     let elementType = e.target.getAttribute('data-type');
+    filter.forEach((filter) => filter.children[1].classList.add('hide'));
+    if (elementType === 'price') {          
+        e.target.children[1].classList.remove('hide');
+    } else if (elementType === 'type') {          
+        e.target.children[1].classList.remove('hide');
+    } else if (elementType === 'screen') {          
+        e.target.children[1].classList.remove('hide');
+    } else if (elementType === 'cameraF') {          
+        e.target.children[1].classList.remove('hide');
+    } else if (elementType === 'cameraB') {        
+        e.target.children[1].classList.remove('hide');
+    } else if (elementType === 'special') {          
+        e.target.children[1].classList.remove('hide');
+    } else if (elementType === 'memory') {           
+        e.target.children[1].classList.remove('hide');
+    } else if (elementType === 'ram') {           
+        e.target.children[1].classList.remove('hide');
+    } 
+}))
+
+// lọc theo lưạ chọn người dùng
+let choice = document.querySelectorAll('.product__filter .Container div div ul li');
+
+choice.forEach((choice) => choice.addEventListener(('click'), (e) => {
+    // lọc theo option chọn type
+    let elementType = e.target.getAttribute('data-type-2');
     if (elementType != null) {
         displayProducts(productList.filter((product)=> {
             return product.type === elementType;
         }))  
-        // setTimeout(() => {
-        //     console.log(productList) 
-        // }, 3000) 
     }
-})
-// product screen
-selectScreen.addEventListener('click', (e) => {
-    let ul = document.querySelector('.product__screen ul')
-    ul.classList.toggle('hide')
-})
+}))
 
-// product camera front
-selectCameraF.addEventListener('click', (e) => {
-    let ul = document.querySelector('.product__camera-F ul')
-    ul.classList.toggle('hide')
-})
-
-// product camera back
-selectCameraB.addEventListener('click', (e) => {
-    let ul = document.querySelector('.product__camera-B ul')
-    ul.classList.toggle('hide')
-})
-
-
+// lấy 1 sản phẩm từ API = id 
 function getProductID(id) {
     apiGetProductID()
         .then(response => console.log(response.data))
         .catch(error => console.log(error))
 }
+
+//  khởi tạo danh sách giỏ hàng
 let cartList = []
 
+// giải nén & gán object từ localStorage vào cartList
+cartList = JSON.parse(localStorage.getItem('cartList')) || [];
+
+// hiển thị danh sách giò hàng đã lưu ở localStorage
+displayProductToCart(cartList);
+
+// Handle xử lý thêm item vào cartList & hiển thị ra màn hình
 document.querySelector('.product__main .row').addEventListener('click', (e) => {
+    // bắt sự kiện click ở nút ADD trong productLit, lấy id & type 
     let id = e.target.getAttribute('data-id');
     let elementType = e.target.getAttribute('data-type');
+
+    // nếu type == Add thì lấy id sản phẩm vừa click
     if (elementType == 'add') {
-        document.querySelector('.cart__list div').classList.add('hide');
-        cartItem = productList.filter(product => product.id === id);
-        // product.push(product);
-        // displayProductToCart(product);
-        // console.log(product)
+        // duyệt qua List sản phẩm, trả về sản phẩm có id trùng với id lấy đc
+        let product = productList.filter(product => {
+            return product.id === id; 
+        });
+        
+        // tạo đối tượng mới bao gồm product vừa lấy đc = id & khối lượng set = 1;
+        let cartItem = {
+            product : {...product},
+            quantity : 1,
+        };
+
+        // duyệt qua List giỏ hàng, kiểm tra xem có sản phẩm nào trùng id với id vừa lấy đc
+        let stamp = cartList.find((cartItem) => {
+            return cartItem.product[0].id === id;
+        })
+        // console.log(stamp) 
+
+        
+        if (stamp === undefined) {  
+            cartList.push(cartItem);    // nếu ko có thì undefined => push vào giỏ hàng
+        } else {    
+            stamp.quantity++;   // nếu có trùng thì trả về object trùng => +1 số lượng SP trong giỏ lên
+        }
+        // console.log(cartList)
+        total();
+
+        // lưu vào local Storage mỗi khi thêm sản phẩm
+        window.localStorage.setItem('cartList', JSON.stringify(cartList));
+        // hiển thị giỏ hàng lên giao diện
+        displayProductToCart(cartList);
     }
 })
 
+// handle xử lý nút UP, DOWN, DELETE
+document.querySelector('.cart__list').addEventListener('click', (e) => {
+    // bắt sự kiện click ở cartList, lấy id & type (up || down)
+    let elementType = e.target.getAttribute('data-type');
+    let id = e.target.getAttribute('data-id');
+
+    // duyệt qua List giỏ hàng, kiểm tra xem có sản phẩm nào trùng id với id vừa lấy đc => trả về object đó
+    let stamp = cartList.find((cartItem) => {
+        return cartItem.product[0].id === id;
+    })
+
+    // duyệt qua List giỏ hàng, kiểm tra xem có sản phẩm nào trùng id với id vừa lấy đc => tra về index của object đó
+    let stampIndex = cartList.findIndex((cartItem) => {
+        return cartItem.product[0].id === id;
+    })
+
+    // nếu type == DOWN thì giảm quantity 1 đvị
+    if (elementType === 'down') {
+        stamp.quantity--;
+        // nếu quantity = 0 thì xóa chính nó
+        if (stamp.quantity === 0) {
+            cartList.splice(stampIndex, 1);
+        }
+    // nếu type == UP thì tăng quantity 1 đvị
+    } else if (elementType === 'up') {
+        stamp.quantity++;
+    // nếu type == Delete thì xóa chính nó   
+    } else if (elementType === 'delete') {
+        if (stampIndex != -1) {
+            cartList.splice(stampIndex, 1);
+        }
+    }
+    total();
+    // lưu vào local Storage mỗi khi thêm sản phẩm
+    window.localStorage.setItem('cartList', JSON.stringify(cartList));
+    // hiển thị giỏ hàng lên giao diện
+    displayProductToCart(cartList);
+})
+
+// handle xử lý nút CLEAR-ALL, Purchase
+document.querySelector('.cart__btn').addEventListener('click', (e) => {
+    let elementType = e.target.getAttribute('data-type');
+    
+    if (elementType === 'clear' || elementType === 'purchase') {
+        cartList.splice(0);
+    }
+    total();
+    // lưu vào local Storage mỗi khi thêm sản phẩm
+    window.localStorage.setItem('cartList', JSON.stringify(cartList));
+    // hiển thị giỏ hàng lên giao diện
+    displayProductToCart(cartList);
+})
 
 
+// hàm tính tổng tiền & tính tổng số lượng sản phẩm trong cartList
+function total() {
+    let total = 0;
+    let totalQuantity = 0;
+    cartList.forEach((cartItem) => {
+        let stamp = +cartItem.product[0].price * +cartItem.quantity;
+        total += stamp;
+        totalQuantity += +cartItem.quantity;
+    })
+    // tổng số lượng sản phẩm trong cartList
+    document.querySelector('.header__quantity').innerHTML = totalQuantity;
+    // tổng tiền trong cartList
+    document.querySelector('.cart__total span').innerHTML = total.toLocaleString();
+}
 
-getProducts()
-
-function getProducts() {
-    apiGetProducts()
+getProducts(); 
+total();
+// hàm lấy dữ liêu Products từ API
+function getProducts(searchName) {
+    apiGetProducts(searchName)
         .then(response => {
             let products = response.data;
             products.map((product) => {
@@ -356,11 +375,13 @@ function getProducts() {
         })
         .catch(error => console.log(error))
 }
+
+// hàm render Products
 function displayProducts(products) {
     let content = '';
     products.reduce((result, product) => {
         return content = result + 
-        `<div class="col-3">
+        `<div class="col-xl-3 mb-xl-3 col-md-4 mb-md-3 col-6 mb-3">
         <div class="product__col">
             <div class="product__img">
                 <img src="${product.img}" alt="">
@@ -370,7 +391,7 @@ function displayProducts(products) {
                     <h5>${product.name}</h5>
                 </div>
                 <div class="product__price">
-                    <strong>${product.price}đ</strong>
+                    <strong>${(+product.price).toLocaleString()}đ</strong>
                 </div>
             </div>
             <div class="product__discount">Giảm 30%</div>
@@ -398,33 +419,93 @@ function displayProducts(products) {
     },'')
     document.querySelector('.product__main .row').innerHTML = content;
 }
-function displayProductToCart(product) {
-    let content = '';
-    product.reduce((result, product) => {
+
+// hàm render CartList
+function displayProductToCart(cartList) {
+    let content = `
+    <div>
+        <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/9bdd8040b334d31946f49e36beaf32db.png" style="width: 100px; margin-bottom: 20px;">
+        <p>Chưa có sản phẩm</p>
+    </div>`;
+    cartList.reduce((result, cartItem) => {
         return content = result + 
         `<div class="cart__item">
             <div class="cart__item-img">
-                <img src="${product.img}" alt="">
+                <img src="${cartItem.product[0].img}" alt="">
             </div>
             <div class="cart__item-name">
-                <span>${product.name}</span>
+                <span>${cartItem.product[0].name}</span>
             </div>
             <div class="cart__item-quantity">
                 <span>
-                    <i class="fa-solid fa-angle-left"></i>
-                    1
-                    <i class="fa-solid fa-angle-right"></i>
+                    <i class="fa-solid fa-angle-left" data-id="${cartItem.product[0].id}" data-type="down"></i>
+                    ${cartItem.quantity}
+                    <i class="fa-solid fa-angle-right" data-id="${cartItem.product[0].id}" data-type="up"></i>
                 </span>
             </div>
             <div class="cart__item-price">
-                <span>${product.price}</span>
+                <span>${(+cartItem.product[0].price).toLocaleString()}</span>
             </div>
             <div class="cart__item-delete">
                 <span>
-                    <i class="fa-solid fa-trash-can"></i>
+                    <i class="fa-solid fa-trash-can" data-id="${cartItem.product[0].id}" data-type="delete"></i>
                 </span>
             </div>
         </div>`
     }, '')
-    document.querySelector('.cart__list').innerHTML += content;
+    document.querySelector('.cart__list').innerHTML = content;
 }
+  
+ // ============================= Code Edit Store =============================
+// function updateStoreID(id) {
+//     apiUpdateStoreID(id)
+//         .then((response) => {
+//             console.log(response.data)
+//             document.querySelector('.id').value = response.data.id;
+//             document.querySelector('.nameProvince').value = response.data.nameProvince;
+//             document.querySelector('.nameStore').value = response.data.nameStore;
+//             document.querySelector('.addressStore').value = response.data.addressStore;
+//         })
+//         .catch(error => console.log(error))
+// }
+// storeList.addEventListener('click', (e) => {
+//     console.log(e.target)
+//     let element = e.target.getAttribute('data-type')
+//     let id = e.target.getAttribute('data-id')
+//     if (element  === 'edit') {
+//         updateStoreID(id);
+//     } else if (element  === 'del') {
+//         delStore(id)
+//     }
+// })
+// function updateStore(id, store) {
+//     apiUpdateStore(id, store)
+//         .then(response => {
+//             console.log(response.data.addrssStore);
+//             response.data.addrssStore = '';
+//             getStore();
+//         })
+//         .catch(error => console.log(error))
+// }
+// document.querySelector('.update').addEventListener('click', (e) => {
+//     console.log(document.querySelector('.id').value)
+//     let id = document.querySelector('.id').value;
+//     let nameProvince = document.querySelector('.nameProvince').value;
+//     let nameStore = document.querySelector('.nameStore').value;
+//     let addressStore = document.querySelector('.addressStore').value;
+    
+//     let store = new Stores(id, nameProvince, nameStore, addressStore)
+//     updateStore(id, store)
+//     // addStore(store)
+// })
+// function addStore(store) {
+//     apiAddStore(store)
+//         .then(response => getStore())
+//         .catch(error => console.log(error))
+// }
+// function delStore(id) {
+//     apiDelStore(id)
+//         .then(response => getStore())
+//         .catch(error => console.log(error))
+// }
+// ============================================================================

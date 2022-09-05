@@ -27,10 +27,9 @@ class Products {
     }
 }
 
-class CartList {
-    constructor(id, cartItem, quantity) {
-        this.id = id;
-        this.cartItem = cartItem;
+class CartItem {
+    constructor(product, quantity) {
+        this.product = product;
         this.quantity = quantity;
     }
 }
