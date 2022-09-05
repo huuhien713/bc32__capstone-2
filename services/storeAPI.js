@@ -39,10 +39,13 @@ function apiDelStore(id) {
 
 // ========================== PRODUCTS ==========================
 
-function apiGetProducts() {
+function apiGetProducts(searchName) {
     return axios({
         url : 'https://62fdf0cb41165d66bfb4b14f.mockapi.io/Products',
         method : 'GET',
+        params : {
+            name : searchName,
+        }
     })
 }
 function apiGetProductID(id) {
