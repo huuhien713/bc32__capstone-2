@@ -40,6 +40,7 @@
   display: flex;
   gap: 5px;
   justify-content: center;
+  align-items: center;
 }
 
 #inputDiv input {
@@ -292,7 +293,34 @@ tbody button {
   }
   table tbody td button {
     margin-bottom: 5px;
-    /* font-size: 12px !important; */
+  }
+
+  #modal__content {
+    width: 35%;
+  }
+  #modal__header h4,
+  #modal__wrapper #modal__content #modal__header button {
+    font-size: 20px;
+  }
+  #modal__footer button {
+    font-size: 14px;
+  }
+
+  #modal__body .form-group label {
+    font-size: 14px;
+  }
+  #modal__body .form-group input {
+    padding: 4px;
+  }
+
+  #inputDiv input {
+    width: 200px;
+    padding-left: 6px;
+    border-radius: 5px;
+    height: 41px;
+  }
+  #wrapper__input #btnFind {
+    height: 41px;
   }
 }
 
@@ -310,6 +338,14 @@ tbody button {
   }
 
   #btnSPMoi {
-    margin-top: 20px;
+    margin-top: 10px;
+  }
+
+  .col-md-4 {
+    text-align: center;
+  }
+
+  #modal__content {
+    width: 50%;
   }
 }
