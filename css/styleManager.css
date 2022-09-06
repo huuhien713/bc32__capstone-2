@@ -7,7 +7,7 @@
 /* Table */
 
 #wrapper__table {
-  width: 80%;
+  width: 90%;
   margin: 20px auto;
   background: linear-gradient(to right, #25c481, #25b7c4);
   background-size: 100%;
@@ -33,12 +33,14 @@
 
 #wrapper__input {
   display: flex;
+  justify-content: space-evenly;
 }
 
 #inputDiv {
   display: flex;
   gap: 5px;
   justify-content: center;
+  align-items: center;
 }
 
 #inputDiv input {
@@ -74,6 +76,7 @@ table {
   margin: 20px auto;
   overflow: hidden;
 }
+
 thead th {
   height: 50px;
 
@@ -267,4 +270,82 @@ tbody button {
 #modal span {
   margin-top: 2px;
   color: red;
+}
+
+@media screen and (max-width: 1199.98px) {
+  #wrapper__input #btnSPMoi,
+  #wrapper__input #btnFind {
+    font-size: 14px;
+  }
+  #btnFind {
+    padding: 0 10px;
+  }
+
+  table thead tr {
+    font-size: 16px;
+  }
+  table tbody tr {
+    font-size: 16px;
+  }
+  table tbody img {
+    width: 40px;
+    height: 40px;
+  }
+  table tbody td button {
+    margin-bottom: 5px;
+  }
+
+  #modal__content {
+    width: 35%;
+  }
+  #modal__header h4,
+  #modal__wrapper #modal__content #modal__header button {
+    font-size: 20px;
+  }
+  #modal__footer button {
+    font-size: 14px;
+  }
+
+  #modal__body .form-group label {
+    font-size: 14px;
+  }
+  #modal__body .form-group input {
+    padding: 4px;
+  }
+
+  #inputDiv input {
+    width: 200px;
+    padding-left: 6px;
+    border-radius: 5px;
+    height: 41px;
+  }
+  #wrapper__input #btnFind {
+    height: 41px;
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+  table thead tr {
+    font-size: 14px;
+  }
+  table tbody tr {
+    font-size: 14px;
+  }
+
+  table tbody td button {
+    margin-bottom: 5px;
+    font-size: 12px !important;
+  }
+
+  #btnSPMoi {
+    margin-top: 10px;
+  }
+
+  .col-md-4 {
+    text-align: center;
+  }
+
+  #modal__content {
+    width: 50%;
+  }
 }
