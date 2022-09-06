@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Table */
+
+#wrapper__table {
+    position: relative;
+    width: 90%;
+    margin: 20px auto;
+    background: linear-gradient(to right, #25c481, #25b7c4);
+    background-size: 100%;
+    border-radius: 50px;
+}
+
+.head {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.head h3 {
+    display: inline;
+    color: white;
+}
+
+#body {
+    padding: 20px 0;    
+}
+
+#wrapper__input {
+    display: flex;
+    justify-content: space-between;
+}
+
+#inputDiv {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#inputDiv input {
+    width: 300px;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+#btnFind {
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: none;
+    border: none;
+    padding: 8px 20px;
+    color: white;
+    border-radius: 5px;
+}
+
+#btnSPMoi {
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    outline: none;
+}
+
+table {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+thead th {
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+thead {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+thead th {
+    padding: 0 10px;
+}
+
+tbody tr {
+    height: 100px;
+    width: 150px;
+}
+
+tbody td {
+    padding: 10px;
+    height: 60px;
+    text-align: center;
+    color: #fff;
+}
+
+tbody .divCamSau {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80px;
+}
+
+tbody .divCamTruoc {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80px;
+}
+
+tbody .divMoTa,
+tbody .divManHinh {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 150px;
+}
+
+tbody button {
+    margin-bottom: 5px; 
+}
+
+
+/* MODAL  */
+#modal2 {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;    
+    transition: all 0.5s;
+    transform: translateY(-150%);
+    background-color: transparent;
+}
+#modal__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    height: auto;
+    margin: auto;
+    border-radius: 10px;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px 2px rgba(0,0,0,0.3);
+}
+#modal__header {
+    position: relative;
+    padding: 5px 10px;
+    border-bottom: 1px solid #eee;
+}
+#modal__header button {
+    position: absolute;
+    top: 40%;
+    right: 20px;
+    font-size: 2rem;
+    outline: none;
+    border: none;
+    transform: translateY(-50%);
+    background-color: transparent;
+}
+#modal__body {
+    padding: 10px 20px;
+    line-height: 16px;
+    border-bottom: 1px solid #eee;
+}
+#modal__body .form-group {
+    margin-bottom: 0px;
+}
+#modal__body input, textarea {
+    font-size: 0.8rem;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    outline: 1px solid #25b7c4;
+}
+#modal__body label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+#modal__body span {
+    font-size: 0.6rem;
+    color: red;
+}
+#modal__footer {
+    padding: 5px 20px;
+    text-align: right;
+}
+

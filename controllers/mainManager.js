@@ -80,68 +80,56 @@ function updateProduct(id, product) {
     });
 }
 
-//==========================
-
 function display(objects) {
   let output = objects.reduce((result, obj, index) => {
-    return (
-      result +
-      `
-  <tr>
-  <td>${index + 1}</td>
+    return (result + `
+    <tr>
+        <td>${index + 1}</td>
 
-  <td>${obj.name}</td>
+        <td>${obj.name}</td>
 
-  <td>${Number(obj.price).toLocaleString()}</td>
+        <td>${Number(obj.price).toLocaleString()}</td>
 
-  <td>${obj.type}</td>
-
-  <td>
-  <div class="divManHinh"> ${obj.screen}</div>
-  </td>
-
-  <td>
-  <div class="divCamTruoc">${obj.frontCamera}</div>
-  </td>
-
-  <td>
-  <div class="divCamSau">${obj.backCamera}</div>
-  </td>
-
-  <td><img src='${obj.img}' width='60px' height='60px' /></td>
-
-  <td><div class="divMoTa">${obj.desc}</div></td>
-
-  <td>
-  <button class='btn btn-danger' data-type='edit' data-id='${
-    obj.id
-  }'>Edit</button>
-
-  <button class='btn btn-warning' data-type='delete' data-id='${
-    obj.id
-  }'>Delete</button></td>
-
-  </tr>`
-    );
-  }, "");
+        <td>${obj.type}</td>
+        <td>
+            <div class="divManHinh"> ${obj.screen}</div>
+        </td>
+        <td>
+            <div class="divCamTruoc">${obj.frontCamera}</div>
+        </td>
+        <td>
+            <div class="divCamSau">${obj.backCamera}</div>
+        </td>
+        <td>
+            <img src='${obj.img}' width='60px' height='60px'/>
+        </td>
+        <td>
+            <div class="divMoTa">${obj.desc}</div></td>
+        <td>
+            <button class='btn btn-danger' 
+            data-type='edit' 
+            data-id='${obj.id}'
+            >Edit</button>
+            <button class='btn btn-warning' 
+            data-type='delete' 
+            data-id='${obj.id}'
+            >Delete</button>
+        </td>
+    </tr>`);
+}, "");
 
   document.getElementById("tblDanhSachSP").innerHTML = output;
 }
-
+// OPEN modal
 document.getElementById("btnSPMoi").addEventListener("click", () => {
-  document.getElementById("modal").style.display = "block ";
-
-  dom(".modal-title").innerHTML = "Thêm Sản Phẩm Mới";
-  dom("#modal__footer").innerHTML = `
-  <button id="btnThem" data-type="add" class="button">
-  Thêm Sản Phẩm</button>
-  <button id="btnHuy " data-dismiss="modal" class="button">
-  Hủy</button>
-  `;
-
-  resetForm();
+  document.getElementById("modal2").style.transform = "translateY(0) ";
+  setTimeout(() => {
+    document.getElementById("modal2").style.backgroundColor = "rgba(0,0,0,0.5)";
+  },300)
+  resetForm();  
 });
 
+// handle nút Thêm SP ở MODAL
 dom("#modal__footer").addEventListener("click", (event) => {
   let elType = event.target.getAttribute("data-type");
 
@@ -170,8 +158,6 @@ dom("#modal__footer").addEventListener("click", (event) => {
     screen
   );
 
-  // console.log(product);
-
   if (elType === "add") {
     addProduct(product);
     resetForm();
@@ -184,40 +170,39 @@ dom("#modal__footer").addEventListener("click", (event) => {
   }
 });
 
+// catch Events Edit & Delete
 dom("#tblDanhSachSP").addEventListener("click", (event) => {
   let id = event.target.getAttribute("data-id");
   let elType = event.target.getAttribute("data-type");
   if (elType === "delete") {
     deleteProduct(id);
   } else if (elType === "edit") {
-    document.getElementById("modal").style.display = "block ";
+    document.getElementById("modal2").style.transform = "translateY(0) ";
+    setTimeout(() => {
+      document.getElementById("modal2").style.backgroundColor = "rgba(0,0,0,0.5)";
+    },350);
+    // thay đổi header & footer
     dom(".modal-title").innerHTML = "Cập Nhật Sản Phẩm";
     dom("#modal__footer").innerHTML = `
-      <button id="btnCapNhat" data-type="update" class="button">Cập Nhật</button>
-      <button id="btnHuy " data-dismiss="modal" class="button">
-      Hủy</button>
-     `;
+      <button id="btnCapNhat" 
+      data-type="update" 
+      class="btn btn-primary"
+      >Cập Nhật</button>
+      <button id="btnHuy" 
+      data-dismiss="modal" 
+      class="btn btn-danger"
+      >Hủy</button>`;
+    //
     editProduct(id);
   }
 });
 
-dom("#searchInput").addEventListener("keyup", (event) => {
-  if (event.key !== "Enter") {
-    return;
-  }
-  getProducts(event.target.value);
-});
-
+// search products
 dom("#searchInput").addEventListener("input", (event) => {
   getProducts(event.target.value);
 });
 
-dom("#btnFind").onclick = () => {
-  let value = document.getElementById("searchInput").value;
-  getProducts(value);
-};
-
-//reset form
+// reset form
 function resetForm() {
   dom("#tenSP").value = "";
   dom("#giaSP").value = "";
@@ -230,16 +215,13 @@ function resetForm() {
 }
 
 // Đóng modal
-document.getElementById("modal__wrapper").addEventListener("click", (event) => {
+document.getElementById("modal__content").addEventListener("click", (event) => {
   let content = event.target.getAttribute("data-dismiss");
   if (content === "modal") {
-    document.getElementById("modal").style.display = "none";
-  }
-
-  let check = document.getElementById("modal__content").contains(event.target);
-  // console.log(check);
-  if (!check) {
-    document.getElementById("modal").style.display = "none";
+    document.getElementById("modal2").style.backgroundColor = "transparent";
+    setTimeout(() => {
+      document.getElementById("modal2").style.transform = "translateY(-150%)";
+    },300)
   }
 });
 
@@ -368,3 +350,15 @@ validateForm = () => {
   }
   return true;
 };
+
+
+// dom("#searchInput").addEventListener("keyup", (event) => {
+//   if (event.key !== "Enter") {
+//     return;
+//   }
+//   getProducts(event.target.value);
+// });
+// dom("#btnFind").onclick = () => {
+//   let value = document.getElementById("searchInput").value;
+//   getProducts(value);
+// };
