@@ -673,26 +673,27 @@ body {
   overflow: hidden;
   height: 300px;
 }
-.store__list p {
+.store__list div p {
   font-size: 15px;
   line-height: 20px;
+  width: 100%;
   padding: 15px 0;
   padding-right: 30px;
 }
-.store__list p a {
+.store__list div p a {
   color: #fff;
   text-decoration: none;
 }
-.store__list p a span {
+.store__list div p a span {
   display: block;
   padding: 0 0 7px;
 }
-.store__list p a span span {
+.store__list div p a span span {
   display: inline-block;
   padding: 0 10px;
   color: #2997ff;
 }
-.store__list p a span span::after {
+.store__list div p a span span::after {
   content: "";
   border-top: 1px solid #2997ff;
   border-right: 1px solid #2997ff;
@@ -1165,6 +1166,12 @@ body {
   }
   .product__main .row div .product__col .product__details p {
     font-size: 0.9rem;
+  }
+  .product__main .row div .product__col .product__details p:first-child {
+    max-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
   }
   .intro__main p {
     font-size: 0.9rem;

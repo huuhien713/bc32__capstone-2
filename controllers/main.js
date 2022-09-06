@@ -148,7 +148,7 @@ function display(stores) {
     let content = '';
     stores.reduce((result, store) => {
         return content = result + 
-        `<div class="col-lg-6 col-sm-12">
+        `<div class="col-lg-6 col-12">
             <p class="m-0 ">
                 <a href="">
                     <span>
@@ -171,7 +171,7 @@ function display(stores) {
         </div>
         `
     },'')
-    storeList.innerHTML = content;
+    storeList.children[0].innerHTML = content;
 }
 
 // =============================== PRODUCTS ===============================

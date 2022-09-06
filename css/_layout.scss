@@ -671,34 +671,34 @@
         flex-wrap: wrap;
         overflow: hidden;
         height: 300px;
-        p {
-            font-size: 15px;
-            line-height: 20px;
-            // display: inline-block;
-            // width: 50%;
-            // max-width: 100%;
-            padding: 15px 0;
-            padding-right: 30px;
-            a {
-                color: $text-color;
-                text-decoration: none;
-                span {
-                    display: block;
-                    padding: 0 0 7px;
+        div {
+            p {
+                font-size: 15px;
+                line-height: 20px;
+                width: 100%;
+                padding: 15px 0;
+                padding-right: 30px;
+                a {
+                    color: $text-color;
+                    text-decoration: none;
                     span {
-                        display: inline-block;
-                        padding: 0 10px;
-                        color: #2997ff;
-                        &::after {
-                            content: '';
-                            border-top: 1px solid #2997ff;
-                            border-right: 1px solid #2997ff;
-                            width: 8px;
-                            height: 8px;
-                            transform: rotate(45deg);
+                        display: block;
+                        padding: 0 0 7px;
+                        span {
                             display: inline-block;
-                            vertical-align: middle;
-                            margin: 0 0 2px 3px;
+                            padding: 0 10px;
+                            color: #2997ff;
+                            &::after {
+                                content: '';
+                                border-top: 1px solid #2997ff;
+                                border-right: 1px solid #2997ff;
+                                width: 8px;
+                                height: 8px;
+                                transform: rotate(45deg);
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin: 0 0 2px 3px;
+                            }
                         }
                     }
                 }
@@ -1174,7 +1174,7 @@
                 }
             }
         }
-        }
+    }
 }
 @media screen and (max-width:767.98px) {
     .sticky {
@@ -1278,7 +1278,14 @@
                         .product__details {
                             p {
                                 font-size: 0.9rem;
+                                &:first-child {
+                                    max-height: 40px;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    margin-bottom: 10px;
+                                }
                             }
+                            
                         }
                     }
                 }
