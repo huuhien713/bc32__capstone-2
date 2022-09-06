@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Admin Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- Table -->
+    <section id="wrapper__table">
+      <sdiv id="head">
+        <div class="head">
+          <h3>Danh Sách Sản Phẩm</h3>
+        </div>
+      </sdiv>
+      <section id="body">
+        <div class="container-fluid">
+          <div id="wrapper__input" class="row">
+            <div id="inputDiv" class="col-md-8">
+              <input id="searchInput" placeholder="Tên sản phẩm" />
+              <button id="btnFind">
+                <i class="fa-solid fa-magnifying-glass"></i> Tìm
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button id="btnSPMoi">Thêm Sản Phẩm Mới</button>
+            </div>
+          </div>
+          <div id="tblSanPham">
+            <table>
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Tên Sản Phẩm</th>
+                  <th>Giá</th>
+                  <th>Hãng</th>
+                  <th>Màn Hình</th>
+                  <th>Camera Trước</th>
+                  <th>Camera Sau</th>
+                  <th>Hình Ảnh</th>
+                  <th>Mô tả</th>
+                  <th>
+                    <i class="fa-solid fa-gear"></i>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="tblDanhSachSP"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!--The Modal -->
+    <section id="modal">
+      <div id="modal__wrapper">
+        <div id="modal__overplay"></div>
+        <div id="modal__content">
+          <div id="modal__header">
+            <h4 class="modal-title">Modal heading</h4>
+            <button class="button" data-dismiss="modal">x</button>
+          </div>
+          <div id="modal__body">
+            <input hidden id="idSP" />
+            <div class="form-group">
+              <label>Tên Sản Phẩm</label>
+              <input
+                id="tenSP"
+                placeholder="Nhập tên sản phẩm"
+                oninput="validateName()"
+              />
+              <span id="tbName"></span>
+            </div>
+            <div class="form-group">
+              <label>Giá</label>
+              <input
+                id="giaSP"
+                placeholder="Nhập giá"
+                oninput="validatePrice()"
+              />
+              <span id="tbPrice"></span>
+            </div>
+            <div class="form-group">
+              <label>Hình Ảnh</label>
+              <input
+                id="hinhAnhSP"
+                placeholder="Nhập hình ảnh"
+                oninput="validateImg()"
+              />
+              <span id="tbImg"></span>
+            </div>
+            <div class="form-group">
+              <label>Kích Thước Màn Hình</label>
+              <input
+                id="manHinhSP"
+                placeholder="Nhập kích thước màn hình"
+                oninput="validateScreen()"
+              />
+              <span id="tbScreen"></span>
+            </div>
+            <div class="form-group">
+              <label>Camera Trước</label>
+              <input
+                id="camTruocSP"
+                placeholder="Nhập thông số camera trước"
+                oninput="validateFrontCam()"
+              />
+              <span id="tbfrontCam"></span>
+            </div>
+            <div class="form-group">
+              <label>Camera Sau</label>
+              <input
+                id="camSauSP"
+                placeholder="Nhập thông số camera sau"
+                oninput="validateBackCam()"
+              />
+              <span id="tbBackCam"></span>
+            </div>
+            <div class="form-group">
+              <label>Hãng</label>
+              <input
+                id="hangSP"
+                placeholder="Nhập hãng"
+                oninput="validateType()"
+              />
+              <span id="tbType"></span>
+            </div>
+            <div class="form-group">
+              <label>Mô Tả</label>
+              <textarea
+                class="form-control"
+                id="moTaSP"
+                cols="30"
+                placeholder="Nhập mô tả"
+                oninput="validateDesc()"
+              ></textarea>
+              <span id="tbDesc"></span>
+            </div>
+          </div>
+          <div id="modal__footer"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="./modal/product.js"></script>
+    <script src="./services/productAPI.js"></script>
+    <script src="./function/function.js
+    "></script>
+    <script src="./controller/main.js"></script>
+  </body>
+</html>
