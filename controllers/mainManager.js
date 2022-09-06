@@ -56,7 +56,7 @@ function editProduct(id) {
       dom("#idSP").value = product.id;
 
       dom("#tenSP").value = product.name;
-      dom("#giaSP").value = Number(product.price).toLocaleString();
+      dom("#giaSP").value = Number(product.price).toFixed();
 
       dom("#hinhAnhSP").value = product.img;
       dom("#camTruocSP").value = product.frontCamera;
@@ -126,7 +126,17 @@ document.getElementById("btnSPMoi").addEventListener("click", () => {
   setTimeout(() => {
     document.getElementById("modal2").style.backgroundColor = "rgba(0,0,0,0.5)";
   },300)
+  dom("#modal__footer").innerHTML = `
+      <button id="btnCapNhat" 
+      data-type="add" 
+      class="btn btn-primary"
+      >Thêm</button>
+      <button id="btnHuy" 
+      data-dismiss="modal" 
+      class="btn btn-danger"
+      >Hủy</button>`;
   resetForm();  
+  resetWarning();
 });
 
 // handle nút Thêm SP ở MODAL
@@ -161,12 +171,21 @@ dom("#modal__footer").addEventListener("click", (event) => {
   if (elType === "add") {
     addProduct(product);
     resetForm();
+    document.getElementById("modal2").style.backgroundColor = "transparent";
+    setTimeout(() => {
+      document.getElementById("modal2").style.transform = "translateY(-150%)";
+    },300)
   } else if (elType === "update") {
-    console.log(elType);
+
     let isValid = validateForm();
     if (!isValid) return;
 
     updateProduct(id, product);
+    resetForm();
+    document.getElementById("modal2").style.backgroundColor = "transparent";
+    setTimeout(() => {
+      document.getElementById("modal2").style.transform = "translateY(-150%)";
+    },300)
   }
 });
 
@@ -181,6 +200,8 @@ dom("#tblDanhSachSP").addEventListener("click", (event) => {
     setTimeout(() => {
       document.getElementById("modal2").style.backgroundColor = "rgba(0,0,0,0.5)";
     },350);
+    // reset Warning
+    resetWarning()
     // thay đổi header & footer
     dom(".modal-title").innerHTML = "Cập Nhật Sản Phẩm";
     dom("#modal__footer").innerHTML = `
@@ -214,7 +235,16 @@ function resetForm() {
   dom("#moTaSP").value = "";
 }
 
-// Đóng modal
+// reset warning
+function resetWarning() {
+  let warning = document.querySelectorAll('#modal__content .form-group span')
+  let warningArr = [...warning];
+  for (let index in warningArr) {
+    warningArr[index].innerHTML = '';
+  }
+}
+
+// CLOSE MODAL
 document.getElementById("modal__content").addEventListener("click", (event) => {
   let content = event.target.getAttribute("data-dismiss");
   if (content === "modal") {
