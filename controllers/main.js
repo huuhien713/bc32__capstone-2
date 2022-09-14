@@ -214,10 +214,13 @@ filter.forEach((boLoc) => boLoc.addEventListener('click', (e) => {
 
 // lọc theo lưạ chọn người dùng
 let choice = document.querySelectorAll('.product__filter .Container div div ul li');
-
+console.log(choice)
 choice.forEach((choice) => choice.addEventListener(('click'), (e) => {
     // lọc theo option chọn type
+    let type = document.querySelector('.product__type span')
     let elementType = e.target.getAttribute('data-type-2');
+    //chuyển đổi Type => lựa chọn mới
+    type.innerHTML = elementType;
     if (elementType != null) {
         displayProducts(productList.filter((product)=> {
             return product.type === elementType;
